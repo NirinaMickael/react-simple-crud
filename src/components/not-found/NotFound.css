@@ -1,0 +1,8 @@
+.errorContainer{
+    background-color: rgb(192, 50, 50);
+    width: 100vw;
+}
+.errorContainer h2 ,.errorContainer h1 {
+    color: white;
+    text-align: center;
+}

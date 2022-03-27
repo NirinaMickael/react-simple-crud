@@ -1,0 +1,41 @@
+.cars{
+    background-color: rgba(36, 151, 65, 0.863);
+    width: 300px;
+    margin: auto;
+    padding: .4em 1em;
+    margin-top: 2em;
+}
+.cars h5{
+    color: white;
+    font-family: cursive;
+    font-weight: 7 00;
+    font-size: .9em;
+}
+.animate{
+    animation: Display .6s ease-out .1s 1 alternate forwards;
+}
+@keyframes Display{
+    0%{ 
+        opacity: 0;
+    }
+    25%{
+        transform: translateX(-16px);
+        opacity: 0.2;
+    }
+    50%{
+        transform: translateX(-12px);
+        opacity: 0.4;
+    }
+    75%{
+        transform: translateX(-8px);
+        opacity: 0.6;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+        background: rgb(33, 131, 102);
+    }
+}
+.color{
+    background-color: rgb(80, 174, 169);
+}
