@@ -1,16 +1,11 @@
 import React from "react";
 import './cars.css';
-function addStyle(e)  {
-    console.log(e.target.nodeName);
-   if(e.target.nodeName =="DIV"){
-    e.target.classList.toggle('color');
-   }
-}
  let Car = (props)=>{
     return ( 
-            <div className="cars animate" onClick={addStyle} >
+            <div className="cars  carsGrid animate">
                 <h5> Marque : {props.brand}</h5>
                 <h5> Couleur : {props.color}</h5>
+                <button className="btn">Changer</button>
             </div>
         );
 }

@@ -5,8 +5,9 @@ import About from './components/about/About';
 import Home from './components/home/Home';
 import Contact from './components/contact/Contact';
 import NotFound from './components/not-found/NotFound';
+import Cars from './components/cars/myCar';
 class App extends Component{
-  state = {
+  state = { // represente des differentes donnée dans composant app
     titre : "Cars"
   }
   render(){
@@ -18,7 +19,7 @@ class App extends Component{
                 <Route path='/about' element={<About/>}></Route>
                 <Route path='*' element={<NotFound/>}></Route>
                 <Route path='/contact'element={ <Contact/>} ></Route>  
-                <Route></Route>
+                <Route path='/cars' element={ <Cars/> }></Route>
             </Routes>
         </BrowserRouter>
       </>

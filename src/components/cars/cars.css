@@ -1,9 +1,23 @@
+.carsContainer{
+    width: 100%;
+    display: grid;
+}
 .cars{
     background-color: rgba(36, 151, 65, 0.863);
-    width: 300px;
-    margin: auto;
-    padding: .4em 1em;
-    margin-top: 2em;
+}
+.carsGrid{
+    display: grid;
+    grid-template-columns: repeat(2,.45fr);
+    grid-template-rows: repeat(2,.4fr);
+    justify-content: space-around;
+}
+.btn {
+    background-color: rgb(199, 76, 76);
+    border: none;
+    padding: .3em 0;
+    box-shadow: inset 2px 1px 2px rgb(170, 65, 65),
+                inset -2px -1px 2px rgb(49, 14, 14);
+    color: white;
 }
 .cars h5{
     color: white;
@@ -12,28 +26,45 @@
     font-size: .9em;
 }
 .animate{
-    animation: Display .6s ease-out .1s 1 alternate forwards;
+    animation: LightSpeedIn .6s ease-out .1s backwards;
 }
-@keyframes Display{
-    0%{ 
-        opacity: 0;
+@keyframes LightSpeedIn{
+    0% {
+            transform: translate3d(-100%, 0, 0) skewX(-30deg);
+            opacity: 0;
+      }
+    
+      60% {
+            transform: skewX(5deg);
+            opacity: .6;
+      }
+    
+      80% {
+            transform: skewX(0deg);
+            opacity: .9;
+      }
+    
+      100% {
+            transform: none;
+            opacity: 1;
+      }
+}
+@media (max-width:500px) {
+    @keyframes LightSpeedIn{
+        0% {
+            transform: translate3d(0,-90%, 0) skewX(-5deg);
+            opacity: 0;
+      }
+      60% {transform: skewX(-4deg);} 
+      80% { transform: skewX(-4deg); }
+
     }
-    25%{
-        transform: translateX(-16px);
-        opacity: 0.2;
-    }
-    50%{
-        transform: translateX(-12px);
-        opacity: 0.4;
-    }
-    75%{
-        transform: translateX(-8px);
-        opacity: 0.6;
-    }
-    100%{
-        transform: translateX(0px);
-        opacity: 1;
-        background: rgb(33, 131, 102);
+    .carsContainer{
+        grid-template-columns: .95fr;
+        grid-template-rows: repeat(3,100px);
+        justify-content: center;
+        row-gap: 10px;
+        margin-top: 1em;
     }
 }
 .color{

@@ -1,27 +1,35 @@
 import React,{Component} from "react";
 import Car from "./car";
 import './cars.css';
-const cars = [
-    {
-        brand : "Peugot",
-        color : "black"
-    },
-    {
-        brand : "Ford",
-        color : "yellow"
-    },
-    {
-        brand : "Toyota",
-        color : "green"
+import Header from "../header/header";
+import getList from "./listCar";
+class Cars extends Component{
+    state={
+         cars : getList(),
+         compteur : 0
+       }
+    handleClick = ()=>{
+        let cars = this.state.cars;
+        let car = { 
+            id : cars[cars.length-1].id,
+            brand:"4x4",
+            color:"red"
+        }
+        let newCars = cars.slice();
+        newCars.push(car);
+        this.setState({cars:newCars})
     }
-]
-class MyCar extends Component{
     render(){
         return(
-            cars.map(ele =>{
-            return <Car color={ele.brand} brand={ele.color} />
-            }) 
+            <div>
+                <Header/>
+                <button onClick={this.handleClick}>Add</button>
+               <div className="carsContainer" >
+                    {this.state.cars.map(car => <Car color={car.brand} brand={car.color} />) }
+               </div>  
+            </div>
+            
         );
     }
 }
-export default MyCar;
+export default Cars;
