@@ -1,3 +1,7 @@
+.listContainer{
+    width: 80%;
+    margin: auto;
+}
 .list-item{
     list-style: none;
     padding: .7em;
@@ -11,6 +15,7 @@
     padding: .5em;
     cursor: pointer;
     flex: 1.5;
+    border-radius: 15px;
 }
 .list{
     padding: 0;
@@ -25,15 +30,16 @@
     text-align: center;
 }
 .list p span:nth-child(1){
-    flex: 2;
+    flex:5;
 }
 form{
-    width: 100%;
+    width: 80%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: .3fr .3fr .2fr;
     align-content: space-between;
     height: 23vh;
+    margin: auto;
 }
 form > div {
     display: flex;
@@ -42,16 +48,32 @@ form > div {
     justify-content: space-evenly;
     margin: auto;
 }
+form label {
+    color: rgb(82, 76, 76);
+}
 form  > div input{
-    padding: .4em 0;
+    padding: .4em .3em;
+    border: none;outline: none;
+    border-bottom: 1px solid black;
 }
+
 .btn-add{
-    padding: .8em 0;
+    width: 80%;
+    margin: auto;
+    box-shadow: inset 2px 2px 2px #0d4766a4,
+                inset -2px -2px 2px #83baf5;
+    border-radius:14px;
+    font-size: 1.3em;
+    background: rgb(11, 197, 221);
+    border: none;
+    cursor: pointer;
 }
+/*Animation*/
 .animate{
     animation: LightSpeedIn .6s ease-out .1s backwards;
 }
-@keyframes LightSpeedIn{
+@keyframes LightSpeedIn
+{
     0% {
             transform: translate3d(-100%, 0, 0) skewX(-30deg);
             opacity: 0;
@@ -71,4 +93,22 @@ form  > div input{
             transform: none;
             opacity: 1;
       }
+}
+.fadeOut{
+    transform: translateX(-100px);
+    transition: transform .5s ease-in;
+}
+@keyframes fadeOut{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+/*Animation*/
+/*Media querie*/
+@media (min-width:750px){
+    .listContainer{
+        width: 40%;
+    }
+    form{
+        width: 40%;
+    }
 }

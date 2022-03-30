@@ -12,7 +12,7 @@ class Contact extends Component {
     AddUser=(event) => {
         event.preventDefault();
         const Users = this.state.users.slice();
-        if(this.state.newUser.nom!=""){
+        if(this.state.newUser.nom!==""){
 
             Users.push(this.state.newUser);
             this.setState({users:Users});   
@@ -21,25 +21,31 @@ class Contact extends Component {
     handleChange = (event)=>{
         const value = event.currentTarget.value;
         const users = this.state.users;
-        this.setState({newUser:{id:users[users.length-1].id+1,nom:value,age:10}});
+        this.setState(
+            {
+                newUser:{id:users.length>0?users[users.length-1].id+1:0,nom:value,age:10}
+            }
+        );
     }
-    handleDelete = (id)=>{
+    handleDelete = (id,event)=>{
         const Users = this.state.users.slice();;
-        const index = Users.findIndex(user=>user.id==id);
+        const index = Users.findIndex(user=>user.id===id);
         Users.splice(index,1);
-        setTimeout(()=>this.setState({users:Users}),1000)
+        const list = event.currentTarget.parentNode;
+        list.classList.add('fadeOut');
+        setTimeout(()=>this.setState({users:Users}),500)
     }
     render() {
         return (
             <div>
                 <Header/>
-                <div>
+                <div className="listContainer">
                     <div className="list">
                         {this.state.users.map(user=>{
                             return (
-                                <p className="list-item animate">
+                                <p className={"list-item animate"+" "+user.id}>
                                 {user.id} <span>{user.nom}</span> 
-                                <span className="btn" onClick={()=>this.handleDelete(user.id)}>del</span>
+                                <span className={"btn"+user.id +" "+"btn"} onClick={(event)=>this.handleDelete(user.id,event)}>del</span>
                                 </p>
                             )
                         }   
@@ -48,7 +54,7 @@ class Contact extends Component {
                </div>
                 <form onSubmit={this.AddUser}>
                         <div>
-                            <label htmlFor="name">name</label>
+                            <label htmlFor="name">Name</label>
                             <input type="text" id="name" onChange={this.handleChange} value={this.state.newUser.nom}/>  
                         </div>
                         {/* <div>
@@ -56,7 +62,7 @@ class Contact extends Component {
                             <input type="text" id="name" onChange={this.handleChange} value={this.state.newUser.age}/>  
                         </div> */}
                         <div>
-                            <button type="submit" className="btn-add">Add</button> 
+                            <button type="submit" className="btn-add">ADD</button> 
                         </div>    
                 </form>
             </div>
