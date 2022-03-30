@@ -1,6 +1,6 @@
 import React,{Component} from "react";
-import "./User.css"
 import Header from "../header/header";
+import "./User.css"
 class User extends Component {
     state = {
         users : [
