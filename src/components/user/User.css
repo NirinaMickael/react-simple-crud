@@ -1,0 +1,129 @@
+.listContainer{
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+}
+.list-item{
+    list-style: none;
+    padding: .7em;
+    margin-top: .4em;
+    background: none;
+    box-shadow: 0px 2px 2px rgba(150, 144, 144, 0.795);
+    font-family: 'Gill Sans';
+}
+.list-item:hover{
+    transform: scale(1.1);
+    transform-origin: center;
+    transition: transform .2s ease-in-out;
+}
+.btn-del{
+    background-color: rgba(191, 43, 43, 0.96);
+    padding: .3em;
+    cursor: pointer;
+    flex: 1.5;
+    border-radius: 15px;
+    color: #fff;
+}
+.list{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.list p {
+    display: flex;
+}
+.list p span{
+    text-align: center;
+}
+.list p span:nth-child(1){
+    flex:5;
+}
+form{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .3fr .3fr .2fr;
+    align-content: space-between;
+    height: 23vh;
+    margin: auto;
+}
+form > div {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+}
+form label {
+    color: rgb(82, 76, 76);
+}
+form  > div input{
+    padding: .4em .3em;
+    border: none;outline: none;
+    border-bottom: 1px solid black;
+}
+
+.btn-add{
+    width: 50%;
+    margin: auto;
+    border-radius:14px;
+    font-size: 1.3em;
+    background: rgba(29, 114, 96, 0.829);
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+.btn-add:hover{
+    background-color: rgb(52, 191, 161);
+    color: #1d1c1c;
+}
+/*Animation*/
+.animate{
+    animation: LightSpeedIn .6s ease-out .1s backwards;
+}
+@keyframes LightSpeedIn
+{
+    0% {
+            transform: translate3d(-100%, 0, 0) skewX(-30deg);
+            opacity: 0;
+      }
+    
+      60% {
+            transform: skewX(5deg);
+            opacity: .6;
+      }
+    
+      80% {
+            transform: skewX(0deg);
+            opacity: .9;
+      }
+    
+      100% {
+            transform: none;
+            opacity: 1;
+      }
+}
+.fadeOut{
+    /* transform: translate3d(-100%, 0, 0) skewX(-5deg);
+    transition: transform .5s ease-in; */
+    animation: fadeOut .5s ease-in-out forwards;
+}
+@keyframes fadeOut {
+    0%{
+        transform: translate3d(0, 0, 0) skewX(-5deg);
+    }
+    100%{
+        transform: translate3d(-100%, 0, 0) skewX(0deg);   
+    }
+}
+/*Animation*/
+/*Media querie*/
+@media (min-width:750px){
+    .listContainer{
+        width: 40%;
+    }
+    form{
+        width: 40%;
+    }
+}

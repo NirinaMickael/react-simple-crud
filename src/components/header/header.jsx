@@ -19,8 +19,8 @@ class Header extends Component{
                         <NavLink to="/contact">
                             <li><a>Contact</a></li>
                         </NavLink>
-                        <NavLink to="/cars">
-                            <li><a>Cars</a></li>
+                        <NavLink to="/user">
+                            <li><a>User</a></li>
                         </NavLink>
                     </ul>
                 </nav>
